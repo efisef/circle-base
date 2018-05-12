@@ -1,12 +1,6 @@
-FROM anapsix/alpine-java:9
+FROM efisef/lein-base
 
 RUN apk update
-
-RUN apk add ca-certificates wget
-RUN update-ca-certificates
-RUN wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
-RUN chmod a+x lein
-RUN mv lein /usr/local/bin/
 
 RUN apk add redis
 
