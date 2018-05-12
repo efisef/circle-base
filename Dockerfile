@@ -10,6 +10,8 @@ RUN mv lein /usr/local/bin/
 
 RUN apk add redis
 
+RUN apk add docker
+
 RUN apk add python
 RUN curl -O https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py
