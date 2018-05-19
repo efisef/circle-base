@@ -2,6 +2,8 @@ FROM efisef/lein-base
 
 RUN apk update
 
+RUN apk add --update coreutils && rm -rf /var/cache/apk/*
+
 RUN apk add redis
 
 RUN apk add docker
