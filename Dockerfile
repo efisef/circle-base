@@ -12,7 +12,6 @@ RUN apk add python
 RUN curl -O https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py
 
-RUN pip install awscli --upgrade
-RUN aws --version
-RUN aws configure set default.region eu-west-2
-RUN aws configure set default.output json
+RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-201.0.0-linux-x86_64.tar.gz
+RUN tar xvzf google-cloud-sdk-201.0.0-linux-x86_64.tar.gz
+RUN ./google-cloud-sdk/install.sh
