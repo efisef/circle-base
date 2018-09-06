@@ -28,8 +28,10 @@ RUN curl -Lk -o $PHANTOMJS_ARCHIVE https://github.com/fgrehm/docker-phantomjs2/r
 	&& cp /tmp/usr/local/bin/phantomjs /usr/bin/ \
 	&& rm -fr $PHANTOMJS_ARCHIVE  /tmp/*
 
-RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-201.0.0-linux-x86_64.tar.gz
-RUN tar xvzf google-cloud-sdk-201.0.0-linux-x86_64.tar.gz
+ENV GCLOUD_SDK_VERSION="215.0.0"
+
+RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-$GCLOUD_SDK_VERSION-linux-x86_64.tar.gz
+RUN tar xvzf google-cloud-sdk-$GCLOUD_SDK_VERSION-linux-x86_64.tar.gz
 RUN ./google-cloud-sdk/install.sh -q
 
 RUN apk add --update coreutils && rm -rf /var/cache/apk/*
