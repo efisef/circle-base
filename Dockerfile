@@ -1,4 +1,4 @@
-FROM efisef/lein-base
+FROM efisef/clj-base
 MAINTAINER Luke Tomlin "luke@efisef.io"
 
 RUN apk update
@@ -28,7 +28,7 @@ RUN curl -Lk -o $PHANTOMJS_ARCHIVE https://github.com/fgrehm/docker-phantomjs2/r
 	&& cp /tmp/usr/local/bin/phantomjs /usr/bin/ \
 	&& rm -fr $PHANTOMJS_ARCHIVE  /tmp/*
 
-ENV GCLOUD_SDK_VERSION="215.0.0"
+ENV GCLOUD_SDK_VERSION="220.0.0"
 
 RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-$GCLOUD_SDK_VERSION-linux-x86_64.tar.gz
 RUN tar xvzf google-cloud-sdk-$GCLOUD_SDK_VERSION-linux-x86_64.tar.gz
