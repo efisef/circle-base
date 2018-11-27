@@ -37,5 +37,7 @@ RUN ./google-cloud-sdk/install.sh -q
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH="/root/.cargo/bin:$PATH"
 
+RUN apk add gcc
+
 RUN apk add --update coreutils && rm -rf /var/cache/apk/*
 
