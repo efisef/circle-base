@@ -3,7 +3,7 @@ MAINTAINER Luke Tomlin "luke@efisef.io"
 
 RUN apt-get update
 
-RUN yes | apt-get install redis docker git python
+RUN yes | apt-get install redis docker git python libc-dev gcc libssl-dev pkg-config
 
 RUN curl -O https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py
