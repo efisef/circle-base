@@ -3,7 +3,13 @@ MAINTAINER Luke Tomlin "luke@efisef.io"
 
 RUN apt-get update
 
-RUN yes | apt-get install redis docker git python libc-dev gcc libssl-dev pkg-config
+RUN yes | apt-get install redis git python libc-dev gcc libssl-dev pkg-config apt-transport-https ca-certificates curl software-properties-common
+
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+RUN apt update
+RUN apt-cache policy docker-ce
+RUN yes | apt-get install docker-ce
 
 RUN curl -O https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py
