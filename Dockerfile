@@ -1,4 +1,4 @@
-FROM efisef/clj-base
+FROM efisef/clj-base:1.0.0
 MAINTAINER Luke Tomlin "luke@efisef.io"
 
 RUN apt-get update
@@ -20,7 +20,4 @@ RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud
 RUN tar xvzf google-cloud-sdk-$GCLOUD_SDK_VERSION-linux-x86_64.tar.gz
 RUN ./google-cloud-sdk/install.sh -q
 
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
-ENV PATH="/root/.cargo/bin:$PATH"
-RUN cargo install sccache
-ENV RUSTC_WRAPPER=sccache
+ENV PATH=/google-cloud-sdk/bin:$PATH
